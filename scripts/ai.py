@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # CONFIGURATIONS
-RESUME_FILE = "../../Resume/resume.pdf"
+RESUME_FILE = "../../../Resume/resume.pdf"
 
 def parse_resume() -> str:
     if RESUME_FILE.endswith(".pdf"):

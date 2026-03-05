@@ -2,7 +2,7 @@ import re
 from datetime import datetime
 
 # CONFIGURATION
-TEX_FILE = '../Cover Letter.tex'
+TEX_FILE = '../../Cover Letter.tex'
 
 def replace_body(new_body: str):
 

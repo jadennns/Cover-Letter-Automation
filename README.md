@@ -22,6 +22,10 @@ Will only work if the resume format is **PDF**
 
 **Claude Model:** claude-4-sonnet-20250514
 
+#### Example Output
+![Example Output](./images/example.png)
+
+
 ---
 
 ## Variables
