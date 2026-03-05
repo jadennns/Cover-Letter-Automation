@@ -57,6 +57,8 @@ def ai(job_url: str):
     - Subject: include the exact role and company name from the posting
     - Body: tailor it to the job, referencing specific skills/experience from the resume
     - Body: no LaTeX special characters (avoid &, %, $, #, _, {{, }}, ~, ^, \\)
+
+    DO NOT USE "&"
     """
 
     message = client.messages.create(
