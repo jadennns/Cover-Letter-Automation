@@ -9,6 +9,8 @@ CLI tool using python that auto-generates tailored cover letters using Claude AI
 - Locates the corresponding sections in your LaTeX cover letter template using regex markers
 - Replaces each section with the generated content
 
+##### Approximate Cost: $0.06-0.1 / run
+
 ---
 
 ## Usage
