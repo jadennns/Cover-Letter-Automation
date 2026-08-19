@@ -22,7 +22,12 @@ $ python3 main.py <job posting url>
 ```
 Will only work if the resume format is **PDF**
 
-**Claude Model:** claude-4-sonnet-20250514
+```bash
+$ python3 main.py --usefile
+```
+Difference is, **--usefile** argument means you are using a file in your local directory as the job posting. Redundancy in case websites are locked or requires login.
+
+**Claude Model:** claude-sonnet-5
 
 #### Example Output
 ![Example Output](./images/example.png)
@@ -39,6 +44,7 @@ TEX_FILE = "COVER LETTER TEX FILE LOCATION"
 #### ai.py 
 ```py
 RESUME_FILE = "RESUME FILE LOCATION"
+JOB_POSTING_FILE = "LOCAL FILE FOR JOB POSTING (for --usefile argument)"
 ```
 
 #### Environment Variables
