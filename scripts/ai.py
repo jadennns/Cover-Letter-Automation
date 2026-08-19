@@ -10,6 +10,7 @@ load_dotenv()
 
 # CONFIGURATIONS
 RESUME_FILE = "../../../Resume/resume.pdf"
+JOB_POSTING_FILE = './jobposting.txt'
 
 def parse_resume() -> str:
     if RESUME_FILE.endswith(".pdf"):
@@ -23,10 +24,14 @@ def parse_resume() -> str:
     
 # MAIN AI FUNCTION
 
-def ai(job_url: str):
+def ai(job_url: str, with_file: bool):
     client = anthropic.Anthropic()
     resume_text = parse_resume()
-    job_text = scrape_job(job_url)
+    
+    with open(JOB_POSTING_FILE, 'r') as jpf:
+        job_file_text = jpf.read()
+
+    job_section = job_file_text if with_file == True else scrape_job(job_url)
 
     prompt = f"""
     You are helping write a professional cover letter for a job/intern application.
@@ -40,7 +45,7 @@ def ai(job_url: str):
 
     Here is the job posting: 
     ---
-    {job_text}
+    {job_section}
     ---
 
 
@@ -62,7 +67,7 @@ def ai(job_url: str):
     """
 
     message = client.messages.create(
-        model="claude-4-sonnet-20250514",
+        model="claude-sonnet-5",
         max_tokens=1024,
         messages=[{"role": "user", "content": prompt}],
         tools=[{"type": "web_search_20250305", "name": "web_search"}]

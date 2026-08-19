@@ -4,16 +4,21 @@ import sys
 
 if __name__ == "__main__":
  
-    if len(sys.argv) < 2:
-        print("Please provide a job posting URL as a command line argument.")
-        sys.exit(1)
+    use_file_flag = "--usefile" in sys.argv
 
-    job_url = sys.argv[1]
-
-    print("Job Posting URL: ", job_url)
+    if use_file_flag:
+        print("Using preset file source from ai module...")
+        content = ai(job_url="", with_file=True)
+    else:
+        if len(sys.argv) < 2:
+            print("Please provide a job posting URL as a command line argument.")
+            sys.exit(1)
+        
+        job_url = sys.argv[1]
+        print(f"Job Posting URL: {job_url}")
+        content = ai(job_url, with_file=False)
+    
     print("-" * 50)
-
-    content = ai(job_url)
 
     replace_body(
     new_body=content["body"]

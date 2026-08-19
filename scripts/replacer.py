@@ -3,8 +3,9 @@ from datetime import datetime
 
 # CONFIGURATION
 TEX_FILE = '../../Cover Letter.tex'
+JOB_POSTING_FILE = './scripts/jobposting.txt'
 
-def replace_body(new_body: str):
+def replace_body(new_body: str, with_file: bool = False):
 
     with open(TEX_FILE, 'r') as f:
         content = f.read()
